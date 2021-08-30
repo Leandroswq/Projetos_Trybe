@@ -1,0 +1,75 @@
+body {
+  background-color: rgb(253, 251, 251);
+  margin: 0px;
+}
+
+#cabecalho {
+  position: sticky;
+  top: 0;
+  background-color: #26B1E3;
+  margin: auto ;
+  border: 0.25em solid black;
+
+}
+
+#cabecalho a{
+  color: #00E0A8;
+}
+
+#cabecalho h1{
+  text-align: center;
+  margin-top: 0px;
+  padding-top: 0.5em;
+  padding-bottom: 0.2em;
+}
+
+main{
+  padding-left: 1em;
+}
+
+#navegacao ul,#navegacao a{
+  list-style: none;
+  padding-left: 0px;
+}
+
+#navegacao a{
+  text-decoration: none;
+}
+
+#imagemLicoes div{
+  display: inline-block;
+}
+#imagemLicoes div:nth-of-type(1){
+  vertical-align: top;
+  margin-top: 1.2em;
+}
+#minha_foto {
+  width: 150px;
+}
+#licoes{
+  margin-left: 2em;
+}
+#licoes section{
+  display: inline-block;
+}
+
+#licoes_a_aprender{
+  list-style-type: circle;
+}
+
+footer{
+  font-size: 0.7em;
+  text-align: center;
+}
+.Trybe{
+  color: #00B88A;  
+}
+
+#Artigo section{
+  display: inline-block;
+  width: 45%;
+  margin-right: 1%;
+  vertical-align: top;
+  border: 00.2em solid black;
+  padding: 1%;
+}
