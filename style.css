@@ -5,3 +5,7 @@ header{
 body{
   text-align: center;
 }
+ul{
+  list-style-type: none;
+  padding: 0px;
+}

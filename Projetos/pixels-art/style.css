@@ -1,0 +1,34 @@
+.color , .pixel {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  border: 1px solid black;
+}
+
+.line-pixel-board {
+  height: 41px;
+}
+
+#clear-board {
+  height: 30px;
+  margin-bottom: 5px;
+  font-size: large;
+}
+
+.inline-block.input {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.inline-block.input button {
+  margin-left: 5px;
+}
+
+#color-palette {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+#color-palette-button {
+  vertical-align: 100%;
+}
