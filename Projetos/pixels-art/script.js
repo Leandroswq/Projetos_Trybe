@@ -1,4 +1,3 @@
-const paletteColors = ['black', 'red', 'blue', 'yellow'];
 let linePixelBoardSize = 5;
 let columnPixelBoardSize = 5;
 
@@ -19,10 +18,9 @@ function randomPaletteColors() {
 }
 
 function fillPalette() {
-  for (let index = 0; index < paletteColors.length; index += 1) {
+  for (let index = 0; index < 4; index += 1) {
     const color = document.createElement('div');
     const palette = document.getElementById('color-palette');
-    color.style.backgroundColor = paletteColors[index];
     color.classList.add('color');
     if (index === 0) {
       color.classList.add('selected');
@@ -44,6 +42,7 @@ function fillPixelBoard() {
       pixel.style.backgroundColor = 'white';
       line.appendChild(pixel);
     }
+    line.style.width = (linePixelBoardSize * 42) + 'px';
     board.appendChild(line);
   }
 }

@@ -1,0 +1,25 @@
+.task-selected {
+  background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
+
+body {
+  background-color: rgb(243, 243, 243);
+  margin: 3em 3em;
+}
+main {
+  width: 30em;
+  background-color: white;
+  margin: auto;
+  border-radius: 3em;
+  padding-left: 3.3em;
+  padding-top: 1em;
+  border-style: solid;
+  padding-bottom: 3em;
+}
+li{
+  width: 27em;
+}
