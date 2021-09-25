@@ -4,9 +4,9 @@ const clearCompletedButton = document.getElementById('remover-finalizados');
 const inputTasks = document.getElementById('texto-tarefa');
 const listTasks = document.getElementById('lista-tarefas');
 const saveButton = document.getElementById('salvar-tarefas');
-const upButtom = document.getElementById('mover-cima');
-const downButtom = document.getElementById('mover-baixo');
-const deletButtom = document.getElementById('remover-selecionado');
+const upButton = document.getElementById('mover-cima');
+const downButton = document.getElementById('mover-baixo');
+const deletButton = document.getElementById('remover-selecionado');
 
 function AddSelectedClassToListItem(event) {
   const task = event.target;
@@ -18,7 +18,7 @@ function AddSelectedClassToListItem(event) {
   task.classList.add(className);
 }
 
-function addRemoveCompletClassToListItem(event) {
+function addRemoveCompletedClassToListItem(event) {
   const task = event.target;
   if (task.className.match(/completed/) !== null) {
     task.classList.remove('completed');
@@ -29,7 +29,7 @@ function addRemoveCompletClassToListItem(event) {
 
 function addEventToList(listElement) {
   listElement.addEventListener('click', AddSelectedClassToListItem);
-  listElement.addEventListener('dblclick', addRemoveCompletClassToListItem);
+  listElement.addEventListener('dblclick', addRemoveCompletedClassToListItem);
 }
 
 function addTask() {
@@ -82,7 +82,7 @@ function moveTaskUp() {
   }
 }
 
-upButtom.addEventListener('click', moveTaskUp);
+upButton.addEventListener('click', moveTaskUp);
 
 function moveTaskDown() {
   const currentTask = getSelectedTask();
@@ -95,7 +95,7 @@ function moveTaskDown() {
   }
 }
 
-downButtom.addEventListener('click', moveTaskDown);
+downButton.addEventListener('click', moveTaskDown);
 
 function deletSelectedTask() {
   const selected = getSelectedTask();
@@ -104,88 +104,81 @@ function deletSelectedTask() {
   }
 }
 
-deletButtom.addEventListener('click', deletSelectedTask);
+deletButton.addEventListener('click', deletSelectedTask);
 
-function getTaskKeys() {
-  let index = 0;
-  const keys = [];
-  const taskKeys = [];
-  while (localStorage.key(index)) {
-    keys.push(localStorage.key(index));
-    index += 1;
-  }
-  for (index = 0; index < keys.length; index += 1) {
-    const regeExp = /tarefa[0-9]+/;
-    const key = keys[index];
-    if (key.match(regeExp)) {
-      taskKeys.push(key);
-    }
-  }
-  let k = taskKeys;
-  k = k.sort((a, b) => parseInt(a.match(/[0-9]+/)[0], 10) - parseInt(b.match(/[0-9]+/)[0], 10));
-  return k;
-}
-
-function removeSavedTasks(_positionTask = 0) {
-  const taskKeys = getTaskKeys();
-  for (let index = taskKeys.length - 1; index > -1; index -= 1) {
-    if (index >= _positionTask) {
-      localStorage.removeItem(`tarefa${index}`);
-    }
-  }
-  return taskKeys;
+function removeSave() {
+  localStorage.tasks = '';
+  localStorage.finishedTasks = '';
 }
 
 function saveTasks() {
-  const tasks = listTasks.children;
-  removeSavedTasks(tasks.length);
-  const tasksCompleted = [];
+  removeSave()
+  let tasks = listTasks.children;
+  let allTasks = []
+  let finishedTasks = []
   for (let index = 0; index < tasks.length; index += 1) {
-    const task = tasks[index].innerText;
-    localStorage.setItem(`tarefa${index}`, task);
-    if (tasks[index].className.match(/completed/)) {
-      tasksCompleted.push(index);
+    let task = tasks[index]
+    if (/completed/.test(task.className)) {
+      finishedTasks.push(task.innerText)
+    } else {
+      finishedTasks.push('')
     }
+    allTasks.push(task.innerText)
   }
-  if (tasksCompleted.length) {
-    localStorage.tasksCompleted = tasksCompleted.join(',');
-  } else {
-    localStorage.removeItem('tasksCompleted');
-  }
+  localStorage.tasks = allTasks;
+  localStorage.finishedTasks = finishedTasks;
 }
 
 saveButton.addEventListener('click', saveTasks);
 
 function loadTaskList() {
-  const keys = getTaskKeys();
-  for (let index = 0; index < keys.length; index += 1) {
-    const listItem = document.createElement('li');
-    listItem.innerText = localStorage.getItem(keys[index]);
-    addEventToList(listItem);
-    listTasks.appendChild(listItem);
+  if (localStorage.tasks != '') {
+    const tasks = localStorage.tasks.split(',');
+    tasks.forEach(element => {
+      const listItem = document.createElement('li');
+      listItem.innerText = element;
+      addEventToList(listItem);
+      listTasks.appendChild(listItem);
+    });
   }
 }
 
-function loadTaskCompleteds() {
-  const tasksCompleted = localStorage.tasksCompleted.split(',');
-  let taskIndex = 0;
+function loadCompletedTasks() {
+  const completedTasks = localStorage.finishedTasks.split(',');
   const tasks = listTasks.children;
   for (let index = 0; index < tasks.length; index += 1) {
-    if (index === parseInt(tasksCompleted[taskIndex], 10)) {
+    if (completedTasks[index] != '') {
       const listItem = tasks[index];
       listItem.classList.add('completed');
-      taskIndex += 1;
     }
   }
 }
 
-function checkSaves() {
-  if (localStorage.tarefa0) {
-    loadTaskList();
+function load() {
+  loadTaskList();
+  loadCompletedTasks();
+}
+
+window.onload = load;
+
+function chosePerson() {
+  let task = document.querySelectorAll('.task-selected')[0]
+  if (task) {
+    task.classList.remove('task-selected')
   }
-  if (localStorage.tasksCompleted) {
-    loadTaskCompleteds();
+  let people = listTasks.children
+  if (people.length > 0) {
+    let index = Math.trunc(Math.random() * (people.length + 0.9 - 1))
+    people[index].classList.add('task-selected')
   }
 }
 
-window.onload = checkSaves;
+function lotteryMode() {
+  let btnSortear = document.createElement('button')
+  clearTasks()
+  let buttons = document.querySelector('#buttons');
+  buttons.innerHTML = ''
+  btnSortear.innerText = 'sortear'
+  buttons.appendChild(btnSortear)
+  buttons.addEventListener('click', chosePerson);
+}
