@@ -1,0 +1,304 @@
+header {
+  display: flex;
+  background-color: rgb(50, 167, 145);
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+}
+
+#trybewarts-header-title {
+  display: flex;
+  color: white;
+  font-size: 3em;
+}
+
+.trybewarts-header-logo {
+  display: flex;
+  padding: 10px;
+  height: 80px;
+  margin-left: 10px;
+}
+
+.header input {
+  display: flex;
+  border-radius: 10px;
+  height: 35px;
+}
+
+#trybewarts-login button {
+  border-radius: 10px;
+  text-justify: center;
+  margin-left: 5px;
+  text-align: center;
+  width: 120px;
+}
+
+.input-login {
+  display: flex;
+  margin-right: 5px;
+  width: 190px;
+  height: 60px;
+  border-color: white;
+  background-color: white;
+}
+
+.input-password {
+  display: flex;
+  margin-right: 2px;
+  height: 40px;
+  width: 180px;
+  border-color: white;
+  background-color: white;
+}
+
+.entrar {
+  border: white;
+  background-color: rgb(105, 32, 173);
+  color: white;
+}
+
+span {
+  font-weight: 700;
+  font-size: 1.1em;
+}
+
+#logado p {
+  margin-right: 30px;
+  font-size: 1.5em;
+  color: white;
+}
+
+#trybewarts-login {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-justify: center;
+} /* DAQUI PARA CIMA FAZ PARTE DO HEADER */
+
+.container-pai-geral {
+  display: flex;
+  background-color: rgb(241, 241, 241);
+  margin-bottom: 20px;
+}
+
+.formulareName {
+  display: flex;
+  font-size: 2.3em;
+  justify-content: center;
+}
+
+#evaluation-form {
+  display: flex;
+  width: 675px;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 200px;
+}
+
+hr {
+  width: 675px; /* corrige o bug de não mostrar */
+  height: 2px;
+  border: 0;
+  border-top: 2px solid rgb(75, 73, 73);
+  margin-bottom: 10px;
+}
+
+.trybewarts-forms-logo-pai {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center; /* background-color: rgb(74, 104, 79); */
+}
+
+#trybewarts-forms-logo {
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  align-items: center; /* background-color: coral; */
+  margin: auto;
+}
+
+.input-flex-container1 {
+  display: flex;
+  justify-content: space-between;
+  width: 650px;
+}
+
+.input-flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.labelHouse {
+  display: flex;
+  text-align: center;
+  margin-bottom: 0;
+  justify-content: left;
+  margin-top: 13px;
+}
+
+#input-name {
+  width: 310px;
+  height: 40px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border-color: white;
+  background-color: white;
+}
+
+#input-lastname {
+  width: 310px;
+  height: 40px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  margin-left: 7px;
+  border-color: white;
+  background-color: white;
+}
+
+#input-email {
+  width: 310px;
+  height: 40px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border-color: white;
+  background-color: white;
+}
+
+#house {
+  width: 265px;
+  height: 48px;
+  margin-left: 1px;
+  margin-right: 2px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border-color: white;
+  background-color: white;
+}
+
+.input-flex-container3 {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+.family {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 40%;
+  margin-right: 30px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: start;
+  width: 60%;
+  margin-left: 100px;
+}
+
+.space {
+  display: block;
+  background-color: lightcoral;
+}
+
+#label-family {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+#label-content {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.family div:nth-child(2) {
+  margin-bottom: 20px;
+}
+
+.family div:nth-child(3) {
+  margin-bottom: 20px;
+}
+
+.blocoInput-1 {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.blocoInput-2 {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.input-flex-container4 {
+  width: 100%; /* corrige o bug de não distribuir os elementos */
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.input-container5 {
+  margin-bottom: 10px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+#counter {
+  font-size: unset;
+  font-weight: 1;
+}
+
+#label-count {
+  width: 155px;
+}
+
+textarea {
+  display: block;
+  text-align: left;
+  width: 650px;
+  border-color: blueviolet;
+  border-radius: 5px;
+  border-width: 2px;
+}
+
+#submit-btn {
+  margin-top: 10px;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 0.8em;
+  background-color: blueviolet;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+#submit-btn:disabled {
+  background-color: rgb(182, 110, 248);
+}
+.rodape {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(67, 70, 75);
+  color: white;
+  height: 45px;
+  font-size: 1.4em;
+}
+
+p {
+  margin: 0;
+  text-align: left;
+  width: 100%;
+}
